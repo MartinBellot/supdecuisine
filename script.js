@@ -1,22 +1,15 @@
 
 const apiUrl = 'https://gist.githubusercontent.com/baiello/0a974b9c1ec73d7d0ed7c8abc361fc8e/raw/e598efa6ef42d34cc8d7e35da5afab795941e53e/recipes.json';
+let recipes = [];
 
 fetch(apiUrl)
   .then(response => response.json())
   .then(data => {
-    const recipeGrid = document.getElementById('recipeGrid');
-    data.forEach(recipe => {
-      const card = document.createElement('div');
-      card.classList.add('card');
-      card.innerHTML = `
-        <img src="images/${recipe.image}" alt="${recipe.name}">
-        <h2>${recipe.name}</h2>
-      `;
-      card.addEventListener('click', () => showRecipeDetails(recipe));
-      recipeGrid.appendChild(card);
-    });
+    recipes = data;
+    displayRecipes(recipes);
   });
 
+//MODALE:
 function showRecipeDetails(recipe) {
   document.getElementById('recipeTitle').textContent = recipe.name;
   document.getElementById('recipeImage').src = recipe.image;
@@ -38,3 +31,30 @@ function showRecipeDetails(recipe) {
 document.getElementById('closeModal').addEventListener('click', () => {
   document.getElementById('recipeModal').style.display = 'none';
 });
+
+
+//RECHERCHE:
+function displayRecipes(recipes) {
+  const recipeGrid = document.getElementById('recipeGrid');
+  recipeGrid.innerHTML = '';
+  recipes.forEach(recipe => {
+    const card = document.createElement('div');
+    card.classList.add('card');
+    let recipe_img_without_extension = recipe.image.split('.').slice(0, -1).join('.');
+    card.innerHTML = `
+      <img src="images/webp_output/${recipe_img_without_extension}.webp" alt="${recipe.name}">
+      <h2>${recipe.name}</h2>
+    `;
+    card.addEventListener('click', () => showRecipeDetails(recipe));
+    recipeGrid.appendChild(card);
+  });
+}
+
+document.getElementById('searchBar').addEventListener('input', (event) => {
+  const searchTerm = event.target.value.toLowerCase();
+  const filteredRecipes = recipes.filter(recipe => recipe.name.toLowerCase().includes(searchTerm));
+  displayRecipes(filteredRecipes);
+});
+
+
+module.exports = { showRecipeDetails, displayRecipes };

@@ -1,0 +1,10 @@
+
+services:
+  supDeCuisineTest:
+    image: node:18.16.1
+    container_name: supDeCuisineTest
+    working_dir: /usr/src/app
+    volumes:
+      - /Users/martinbellot/Desktop/PROG/SUP/COURS_HTML_CSS/supdecuisine/:/usr/src/app
+    command: sh -c "npm init -y && npm install --save-dev jest && npm install jsdom && npm test"
+
