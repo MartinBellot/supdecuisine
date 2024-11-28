@@ -4,8 +4,8 @@ Bienvenue sur le dépôt du site web **Sup De Cuisine**.
 Ce projet contient le code source du site, accessible à l'adresse suivante :  
 [https://martinbellot.github.io/supdecuisine/](https://martinbellot.github.io/supdecuisine/)
 
-Le document expliquant l'algorithme et mon feedback est disponible sous ./supdecuisine.pdf
----
+Le document expliquant l'algorithme et mon feedback est disponible sous ./supdecuisine.pdf :)
+
 
 ## 🚀 Description
 
