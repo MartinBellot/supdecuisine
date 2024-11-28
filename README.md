@@ -1,6 +1,6 @@
-# Sup De Cuisine - Site Web Officiel
+# Sup De Cuisine
 
-Bienvenue sur le dépôt officiel du site web **Sup De Cuisine**.  
+Bienvenue sur le dépôt du site web **Sup De Cuisine**.  
 Ce projet contient le code source du site, accessible à l'adresse suivante :  
 [https://martinbellot.github.io/supdecuisine/](https://martinbellot.github.io/supdecuisine/)
 
